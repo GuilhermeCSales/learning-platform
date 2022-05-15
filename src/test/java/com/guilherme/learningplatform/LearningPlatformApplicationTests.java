@@ -1,4 +1,4 @@
-package com.guilherme;
+package com.guilherme.learningplatform;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
