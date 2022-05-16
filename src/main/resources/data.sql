@@ -21,3 +21,7 @@ INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Spring Boot', 'Main resource', 1, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 1, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Forum', 'Take your doubts', 2, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 2, 1);
 INSERT INTO tb_resource (title, description, position, img_Uri, type, offer_id) VALUES ('Lives', 'Exclusive content lives', 3, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 0, 1);
+
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 1', 'Introduction', 1, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 1, null);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 2', 'Installation of tools', 2, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 1, 1);
+INSERT INTO tb_section (title, description, position, img_Uri, resource_id, prerequisite_id) VALUES ('Chapter 3', 'Tool configuration', 3, 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 1, 2);
