@@ -14,3 +14,6 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
 INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Spring Boot', 'https://miro.medium.com/max/850/1*8KX5TdvTf6HlEjls69uPjw.png', 'https://blog.frankel.ch/assets/resources/more-devops-for-spring-boot/spring-boot-logo.svg');
+
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2022-05-16T03:00:00Z', TIMESTAMP WITH TIME ZONE '2023-05-16T03:00:00Z', 1);
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_id) VALUES ('2.0', TIMESTAMP WITH TIME ZONE '2022-06-16T03:00:00Z', TIMESTAMP WITH TIME ZONE '2023-06-16T03:00:00Z', 1);
