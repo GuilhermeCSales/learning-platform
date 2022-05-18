@@ -1,7 +1,9 @@
 package com.guilherme.learningplatform.resources.exceptions;
 
 import com.guilherme.learningplatform.services.exceptions.DataBaseException;
+import com.guilherme.learningplatform.services.exceptions.ForbiddenException;
 import com.guilherme.learningplatform.services.exceptions.ResourceNotFoundException;
+import com.guilherme.learningplatform.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -54,6 +56,18 @@ public class ResourceExceptionHandler {
         }
 
         return ResponseEntity.status(status).body(validationError);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException error, HttpServletRequest request) {
+        OAuthCustomError oAuthCustomError = new OAuthCustomError("Forbidden", error.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(oAuthCustomError);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException error, HttpServletRequest request) {
+        OAuthCustomError oAuthCustomError = new OAuthCustomError("Unauthorized", error.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(oAuthCustomError);
     }
 
 }
