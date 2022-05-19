@@ -6,7 +6,6 @@ import com.guilherme.learningplatform.repositories.UserRepository;
 import com.guilherme.learningplatform.services.exceptions.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,12 +21,17 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository repository;
 
-    public UserService(UserRepository repository) {
+    private final AuthService authService;
+
+    public UserService(UserRepository repository, AuthService authService) {
         this.repository = repository;
+        this.authService = authService;
     }
 
     @Transactional(readOnly = true)
     public UserDTO findById(Long id) {
+        authService.validateSelfOrAdmin(id);
+
         Optional<User> obj = repository.findById(id);
         User entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
         return new UserDTO(entity);
